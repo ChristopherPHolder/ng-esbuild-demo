@@ -20,6 +20,7 @@
           "apps/ng-esbuild-demo/src/favicon.ico",
           "apps/ng-esbuild-demo/src/assets"
         ],
+        "namedChunks": true,
         "styles": ["apps/ng-esbuild-demo/src/styles.scss"],
         "scripts": []
       },

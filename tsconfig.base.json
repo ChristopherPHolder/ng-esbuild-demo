@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@esbuild-demo/example-2": ["libs/example-2/src/index.ts"],
+      "@esbuild-demo/example-4": ["libs/example-4/src/index.ts"],
+      "@esbuild-demo/example1": ["libs/example-1/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

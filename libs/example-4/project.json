@@ -1,0 +1,29 @@
+{
+  "name": "example-4",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/example-4/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/example-4/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/example-4/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/example-4/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

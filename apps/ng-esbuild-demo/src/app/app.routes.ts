@@ -1,8 +1,16 @@
 import { Route } from '@angular/router';
-import { example1Routes } from '@esbuild-demo/example1';
-import { example4Routes } from '@esbuild-demo/example-4';
 
 export const appRoutes: Route[] = [
-  ...example1Routes,
-  ...example4Routes
+  {
+    path: '1',
+    loadComponent: () => import('../feature/feature-1.component')
+  },
+  {
+    path: '2',
+    loadComponent: () => import('../feature/feature-2.component')
+  },
+  {
+    path: '3',
+    loadComponent: () => import('../feature/feature-3.component')
+  }
 ];

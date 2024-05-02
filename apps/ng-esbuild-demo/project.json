@@ -6,23 +6,61 @@
   "sourceRoot": "apps/ng-esbuild-demo/src",
   "tags": [],
   "targets": {
-    "build": {
-      "executor": "@angular-devkit/build-angular:application",
+    "build-webpack": {
+      "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/ng-esbuild-demo",
         "index": "apps/ng-esbuild-demo/src/index.html",
-        "browser": "apps/ng-esbuild-demo/src/main.ts",
+        "main": "apps/ng-esbuild-demo/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/ng-esbuild-demo/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
         "assets": [
           "apps/ng-esbuild-demo/src/favicon.ico",
           "apps/ng-esbuild-demo/src/assets"
         ],
         "namedChunks": true,
-        "styles": ["apps/ng-esbuild-demo/src/styles.scss"],
-        "scripts": []
+        "statsJson": true
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "build-esbuild": {
+      "executor": "@angular-devkit/build-angular:browser-esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ng-esbuild-demo",
+        "index": "apps/ng-esbuild-demo/src/index.html",
+        "main": "apps/ng-esbuild-demo/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/ng-esbuild-demo/tsconfig.app.json",
+        "assets": [
+          "apps/ng-esbuild-demo/src/favicon.ico",
+          "apps/ng-esbuild-demo/src/assets"
+        ],
+        "namedChunks": true,
+        "statsJson": true
       },
       "configurations": {
         "production": {

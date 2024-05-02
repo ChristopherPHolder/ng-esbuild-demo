@@ -40,7 +40,7 @@ Additionally, it is generating chunks for code that is required in the initial l
 Since all 3 Ui Components are in the initial bundle they do no require being split into a new chunk.
 
 **EsBuild Output**
-![img.png](public/img.png)
+![esbuild-build-output](public/esbuild-build-output.png)
 
 **Webpack Output**
-![img_1.png](public/img_1.png)
+![webpack-build-output](public/webpack-build-output.png)
